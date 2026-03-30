@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Önder Oto</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{display:flex}
+
+/* Sidebar */
+.sidebar{
+ width:260px;height:100vh;background:#0d0d0d;color:white;
+ padding:25px;position:fixed;display:flex;flex-direction:column;justify-content:space-between
+}
+.menu a{display:block;color:#bbb;margin:15px 0;cursor:pointer;transition:.3s}
+.menu a:hover{color:#fff;transform:translateX(5px)}
+
+.social img{
+ width:32px;margin-right:10px;background:white;padding:6px;border-radius:6px;transition:.3s
+}
+.social img:hover{transform:scale(1.15)}
+
+/* Ana sayfa */
+.main{
+ margin-left:260px;width:100%;height:100vh;
+ background:url('https://images.unsplash.com/photo-1493238792000-8113da705763') center/cover no-repeat;
+ display:flex;justify-content:center;align-items:flex-start;padding-top:80px;color:white;text-align:center;
+ transition:opacity .4s;
+}
+
+/* Section */
+.section{
+ display:none;
+ margin-left:260px;
+ padding:80px 40px;
+ background:#111;
+ color:white;
+ min-height:100vh;
+ animation:fade .4s;
+}
+
+@keyframes fade{
+ from{opacity:0;transform:translateY(10px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+/* Ürün layout */
+.products-container{
+ display:flex;
+ gap:20px;
+ align-items:flex-start;
+}
+
+.products{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+ gap:20px;
+ flex:1;
+}
+
+/* Kart */
+.card{
+ background:#1a1a1a;padding:20px;border-radius:10px;text-align:center;
+ cursor:pointer;transition:.3s
+}
+.card:hover{
+ transform:translateY(-5px);
+ box-shadow:0 0 20px rgba(255,255,255,0.3)
+}
+.card img{
+ width:100%;
+ border-radius:6px;
+ margin-bottom:10px;
+}
+
+/* Buton */
+.btn{
+ display:inline-block;margin-top:5px;padding:8px 12px;
+ background:#25D366;color:white;border-radius:6px;text-decoration:none
+}
+
+/* Sağ resim */
+#right-image{
+ flex:0 0 auto;
+ background:#000;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:10px;
+}
+
+#big-img{
+ max-width:100%;
+ max-height:80vh;
+ display:none;
+ opacity:0;
+ transform:scale(0.9);
+ transition:all .3s ease;
+ border-radius:10px;
+ box-shadow:0 0 25px rgba(0,0,0,0.8);
+}
+
+#big-img.show{
+ display:block;
+ opacity:1;
+ transform:scale(1);
+}
+
+#big-img:hover{
+ transform:scale(1.05);
+}
+
+/* Responsive */
+@media(max-width:768px){
+ body{flex-direction:column}
+ .sidebar{width:100%;height:auto;position:relative}
+ .main,.section{margin-left:0}
+ .products-container{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+ <div>
+  <h2>Önder Oto</h2>
+  <div class="menu">
+   <a onclick="show('home')">Anasayfa</a>
+   <a onclick="show('products')">Ürünler</a>
+   <a onclick="show('about')">Hakkımızda</a>
+   <a onclick="show('contact')">İletişim</a>
+  </div>
+ </div>
+
+ <div class="social">
+  <a href="https://www.instagram.com/onderoto_/">
+   <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+  </a>
+  <a href="https://wa.me/905511289903">
+   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+  </a>
+  <a href="mailto:attackanpagarusa@hotmail.com">
+   <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+  </a>
+ </div>
+</div>
+
+<!-- Ana sayfa -->
+<div id="home" class="main">
+ <div>
+  <h1>ÖNDER OTO</h1>
+  <p>Paslanmaz Krom Aksesuar</p>
+ </div>
+</div>
+
+<!-- Ürünler -->
+<div id="products" class="section">
+ <h1>Ürünler</h1>
+
+ <div class="products-container">
+  <div class="products">
+
+   <div class="card" data-large="urunler/AracPlaka.jpg">
+    <img src="urunler/AracPlaka.jpg">Krom Plaka Altlığı<br>
+    <a class="btn" href="https://wa.me/905511289903?text=Krom%20Plaka%20Altlığı%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/MotorPlaka.jpg">
+    <img src="urunler/MotorPlaka.jpg">Motor Plaka Altlığı<br>
+    <a class="btn" href="https://wa.me/905511289903?text=Motor%20Plaka%20Altlığı%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/DelikliMotorPlaka.jpg">
+    <img src="urunler/DelikliMotorPlaka.jpg">Delikli Motor Plaka<br>
+    <a class="btn" href="https://wa.me/905511289903?text=Delikli%20Motor%20Plaka%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/TraktorPlaka.jpg">
+    <img src="urunler/TraktorPlaka.jpg">Traktör Plaka Altlığı<br>
+    <a class="btn" href="https://wa.me/905511289903?text=Traktör%20Plaka%20Altlığı%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/SisDemiri.jpg">
+    <img src="urunler/SisDemiri.jpg">Sis Demiri<br>
+    <a class="btn" href="https://wa.me/905511289903?text=Sis%20Demiri%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/Firfir20cm.jpg">
+    <img src="urunler/Firfir20cm.jpg">20cm Krom Fırfır<br>
+    <a class="btn" href="https://wa.me/905511289903?text=20cm%20Krom%20Fırfır%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/Firfir23cm.jpg">
+    <img src="urunler/Firfir23cm.jpg">23cm Krom Fırfır<br>
+    <a class="btn" href="https://wa.me/905511289903?text=23cm%20Krom%20Fırfır%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/Firfir30cm.jpg">
+    <img src="urunler/Firfir30cm.jpg">30cm Krom Fırfır<br>
+    <a class="btn" href="https://wa.me/905511289903?text=30cm%20Krom%20Fırfır%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/KalinFirfir30cm.jpg">
+    <img src="urunler/KalinFirfir30cm.jpg">30cm Kalın Krom Fırfır<br>
+    <a class="btn" href="https://wa.me/905511289903?text=30cm%20Kalın%20Krom%20Fırfır%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/EgsozSaci.jpg">
+    <img src="urunler/EgsozSaci.jpg">Krom Egzoz Sacı<br>
+    <a class="btn" href="https://wa.me/905511289903?text=Krom%20Egzoz%20Sacı%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+   <div class="card" data-large="urunler/Marspiyel.jpg">
+    <img src="urunler/Marspiyel.jpg">Krom Marşpiyel<br>
+    <a class="btn" href="https://wa.me/905511289903?text=Krom%20Marşpiyel%20sipariş%20vermek%20istiyorum" target="_blank">Sipariş</a>
+   </div>
+
+  </div>
+
+  <div id="right-image">
+   <img id="big-img">
+  </div>
+
+ </div>
+</div>
+
+<!-- Hakkımızda -->
+<div id="about" class="section">
+ <h1>Hakkımızda</h1>
+ <p>Önder Oto olarak ürünlerimizi 0.35mm paslanmaz krom sacdan üretmekteyiz. Ürünlerimiz dayanıklı, uzun ömürlü ve uzun yıllar boyunca güvenle kullanılabilir. Müşteri memnuniyeti ve kaliteli üretim önceliğimizdir.</p>
+</div>
+
+<!-- İletişim -->
+<div id="contact" class="section">
+ <h1>İletişim</h1>
+ <p>Telefon: 0551 128 99 03</p>
+ <p>İş Yeri Telefon: 0224 255 06 69</p>
+ <p>Email: attackanpagarusa@hotmail.com</p>
+ <p>Adres: Gülbahçe Mahallesi Gürgen Sokak No : 21 OSMANGAZİ / BURSA</p>
+</div>
+
+<script>
+function show(section){
+ document.querySelectorAll('.main, .section').forEach(e=>{
+   e.style.opacity='0';
+   setTimeout(()=>{e.style.display='none';},200);
+ });
+
+ setTimeout(()=>{
+   let el=document.getElementById(section);
+   el.style.display='block';
+   el.style.opacity='0';
+   setTimeout(()=>{el.style.opacity='1';},50);
+
+   if(section!=='products'){
+     document.getElementById('big-img').classList.remove('show');
+   }
+ },200);
+}
+
+let current=null;
+
+document.querySelectorAll('.card').forEach(card=>{
+ card.onclick=function(){
+  let img=document.getElementById('big-img');
+
+  if(current===this){
+    img.classList.remove('show');
+    setTimeout(()=>img.style.display='none',300);
+    current=null;
+  }else{
+    img.src=this.dataset.large;
+    img.style.display='block';
+    setTimeout(()=>img.classList.add('show'),10);
+    current=this;
+  }
+ }
+});
+
+/* BUTON ÇAKIŞMA FIX */
+document.querySelectorAll('.btn').forEach(btn=>{
+ btn.addEventListener('click', function(e){
+  e.stopPropagation();
+ });
+});
+</script>
+
+</body>
+</html>
